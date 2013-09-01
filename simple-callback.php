@@ -24,6 +24,18 @@ License:
 ================================================================================
 */
 
+// Тип данных и таксономия
+define('SIMPLE_CALLBACK_TYPE', 'simple_callback');
+define('SIMPLE_CALLBACK_TAXONOMY', 'callback_status');
+// Типы оповещений
+define('SIMPLE_CALLBACK_EMAIL_NOTIFICATION_NONE', 0);
+define('SIMPLE_CALLBACK_EMAIL_NOTIFICATION_ADMINS', 1);
+define('SIMPLE_CALLBACK_EMAIL_NOTIFICATION_EMAIL_LIST', 2);
+// POST параметры
+define('SIMPLE_CALLBACK_POST_NAME', 'simpleCallbackName');
+define('SIMPLE_CALLBACK_POST_PHONE', 'simpleCallbackPhone');
+
+
 // ------------------------- Инициализация -------------------------
 add_action('plugins_loaded', 'simpleCallbackInit');
 function simpleCallbackInit() 

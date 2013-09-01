@@ -1,7 +1,4 @@
 <?php
-define('SIMPLE_CALLBACK_TYPE', 'simple_callback');
-define('SIMPLE_CALLBACK_TAXONOMY', 'callback_status');
-
 // Hook into the 'init' action
 add_action( 'init', 'registerSimpleCallbackType', 0 );	
 
@@ -123,11 +120,9 @@ function getSimpleCallbackField($postId, $customField)
 // Пишет значение произвольных полей
 function setSimpleCallbackField($postId, $customField, $value='') 
 {
-    if ($_GET['post_type'] == SIMPLE_CALLBACK_TYPE) 
-	{
-		add_post_meta($postId, $customField, $value, true) 
-			or update_post_meta($postId, $customField, $value);
-	}
+
+	add_post_meta($postId, $customField, $value, true) 
+		or update_post_meta($postId, $customField, $value);
     return true;		
 }
 
@@ -141,7 +136,8 @@ add_action('manage_simple_callback_posts_custom_column', 'showCallbackColumnsCon
 // Названия колонок в таблице обратных звонков  
 function getCallbackColumnsHead($defaults) 
 {
-	// Добавляем новые колонки  
+	// Добавляем новые колонки и переименовываем существующие 
+	$defaults['title'] = __('Customer', 'simple_callback');
     //$defaults[SIMPLE_CALLBACK_COLUMN_PHONE] = __('Phone', 'simple_callback');
 	$count = 0;
 	$result = array();

@@ -1,8 +1,4 @@
 <?php
-define('SIMPLE_CALLBACK_EMAIL_NOTIFICATION_NONE', 0);
-define('SIMPLE_CALLBACK_EMAIL_NOTIFICATION_ADMINS', 1);
-define('SIMPLE_CALLBACK_EMAIL_NOTIFICATION_EMAIL_LIST', 2);
-
 add_option('simple_callback_email_notification', SIMPLE_CALLBACK_EMAIL_NOTIFICATION_NONE);
 add_option('simple_callback_email_list', '');
 add_option('simple_callback_email_subject', '');

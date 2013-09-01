@@ -1,9 +1,4 @@
 <?php
-// POST параметры
-define('SIMPLE_CALLBACK_POST_NAME', 'simpleCallbackName');
-define('SIMPLE_CALLBACK_POST_PHONE', 'simpleCallbackPhone');
-
-
 // Шорткод
 add_shortcode('callback-form', 'getSimpleCallbackForm');
 
@@ -41,12 +36,66 @@ function getSimpleCallbackForm()
 		if (empty($errorMessage))
 		{
 			
+			// Создаем запись
+			$newRecord = array(
+				'post_type'		=> SIMPLE_CALLBACK_TYPE,
+				'post_title'	=> $nameValue,
+				// 'post_content'	=> '',
+				'post_status'	=> 'publish',
+			);
+			// Добавляем запись
+			$postId = wp_insert_post($newRecord);
+			// Указываем телефон
+			setSimpleCallbackField($postId, __('Phone', 'simple_callback'), $phoneValue);
+			// Устанавливаем статус записи
+			wp_set_object_terms($postId, __('New', 'simple_callback'), SIMPLE_CALLBACK_TAXONOMY);
 
+
+			// Отправляем почту
+			$notification = get_option('simple_callback_email_notification');
+			if ($notification != SIMPLE_CALLBACK_EMAIL_NOTIFICATION_NONE)
+			{
+				// E-mail пользователей
+				$emails = array();
+				switch ($notification)
+				{
+					case SIMPLE_CALLBACK_EMAIL_NOTIFICATION_ADMINS:
+						$admins = get_users('role=administrator');
+						foreach ($admins as $admin)
+							$emails[] = $admin->user_email;
+						break;
+
+					case SIMPLE_CALLBACK_EMAIL_NOTIFICATION_EMAIL_LIST:
+						$emails = preg_split('/[\s]/', get_option('simple_callback_email_list'));
+						// http://stackoverflow.com/questions/3654295/remove-empty-array-elements
+						$emails = array_filter($emails, 'strlen');
+						break;
+				}
+				
+				// Подготовка письма
+				$subject = get_option('simple_callback_email_subject');
+				$body = get_option('simple_callback_email_text');
+
+				// Замены
+				$shortcodes = array(
+					'[name]' => $nameValue,
+					'[phone]' => $phoneValue,
+				);
+				$subject = str_replace(array_keys($shortcodes), array_values($shortcodes), $subject);
+				$body = str_replace(array_keys($shortcodes), array_values($shortcodes), $body);
+
+				// Отправляем письмо
+				if (count($emails) >0 )
+					wp_mail($emails, $subject, $body);
+			}
+
+			// Вывводим сообщение
+			$output = '<p class="message">' . __('Thank you! We shall call you later.', 'simple_callback') . '</p>';
 
 		}
 
 		if (!empty($errorMessage))
-			$errorMessage = '<p class="error-message">' . $errorMessage . '</p>' . PHP_EOL;
+			$errorMessage = '<p class="error message">' . $errorMessage . '</p>' . PHP_EOL;
 
 	}
 
