@@ -81,4 +81,7 @@ function simpleCallbackOptionsShow()
 // Тип данных 
 require(plugin_dir_path(__FILE__) . 'custom-type.php');
 
+// Обработка формы
+require(plugin_dir_path(__FILE__) . 'callback-form.php');
+
 ?>
