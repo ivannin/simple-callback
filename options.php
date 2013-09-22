@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			</div>
 		</fieldset>
 		<div>
-			<button type="submit"><?php _e('Update settings', 'simple_callback')?></button>
+			<button class="button button-primary" type="submit"><?php _e('Update settings', 'simple_callback')?></button>
 		</div>
 	</form>
 	<h3><?php _e('Plugin Usage', 'simple_callback');	?></h3>
