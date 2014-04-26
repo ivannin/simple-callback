@@ -14,4 +14,9 @@ jQuery(function($){
 			});
 		}
 	});
+	// Если есть сообщения, показываем их
+	$('#simpleCallbackForm .message').parents('#simpleCallbackForm').dialog({
+		title: 'Обратный звонок',
+		modal: true
+	});
 });
