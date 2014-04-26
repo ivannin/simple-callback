@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: simple_callback\n"
-"POT-Creation-Date: 2013-09-01 11:37+0400\n"
-"PO-Revision-Date: 2013-09-22 14:26+0400\n"
+"POT-Creation-Date: 2014-04-26 19:06+0400\n"
+"PO-Revision-Date: 2014-04-26 19:06+0400\n"
 "Last-Translator: Иван Никитин <ivan@nikitin.org>\n"
 "Language-Team: IvanNikitin.com <ivan@nikitin.org>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Poedit-KeywordsList: __;_e;_x\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -17,43 +17,43 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../callback-form.php:31
+#: ../callback-form.php:63
 msgid "Please, enter your name <br />"
 msgstr "Укажите Ваше имя <br />"
 
-#: ../callback-form.php:33
+#: ../callback-form.php:65
 msgid "Please, enter correct phone number <br />"
 msgstr "Укажите правильный номер телефона <br />"
 
-#: ../callback-form.php:49 ../custom-type.php:147 ../custom-type.php:160
+#: ../callback-form.php:81 ../custom-type.php:147 ../custom-type.php:160
 msgid "Phone"
 msgstr "Телефон"
 
-#: ../callback-form.php:51 ../custom-type.php:78
+#: ../callback-form.php:83 ../custom-type.php:78
 msgid "New"
 msgstr "Новый"
 
-#: ../callback-form.php:93
+#: ../callback-form.php:125
 msgid "Thank you! We shall call you later."
 msgstr "Спасибо! Мы перезвоним Вам в ближайшее время!"
 
-#: ../callback-form.php:118
+#: ../callback-form.php:150
 msgid "Your Name"
 msgstr "Ваше имя"
 
-#: ../callback-form.php:119
+#: ../callback-form.php:151
 msgid "Your Phone"
 msgstr "Ваш телефон"
 
-#: ../callback-form.php:120
+#: ../callback-form.php:152
 msgid "Enter your name"
 msgstr "Укажите ваше имя и фамилию"
 
-#: ../callback-form.php:121
+#: ../callback-form.php:153
 msgid "Enter your phone"
 msgstr "Укажите Ваш телефон"
 
-#: ../callback-form.php:122
+#: ../callback-form.php:154
 msgid "Submit"
 msgstr "Отправить"
 
@@ -193,43 +193,47 @@ msgstr "Заявка обработана"
 msgid "Customer"
 msgstr "Клиент"
 
-#: ../options.php:98 ../simple-callback.php:81
+#: ../options.php:106 ../simple-callback.php:66
 msgid "Simple Callback"
 msgstr "Простой звонок"
 
-#: ../options.php:102
+#: ../options.php:110
 msgid "Callback Form Options"
 msgstr "Параметры"
 
-#: ../options.php:104
+#: ../options.php:112
+msgid "Your Phone Number"
+msgstr "Номер вашего телефона"
+
+#: ../options.php:116
 msgid "Send Email Notification"
 msgstr "Отправка на E-mail"
 
-#: ../options.php:118
+#: ../options.php:130
 msgid "None"
 msgstr "Нет"
 
-#: ../options.php:119
+#: ../options.php:131
 msgid "To all administrators"
 msgstr "Всем администраторам"
 
-#: ../options.php:120
+#: ../options.php:132
 msgid "To this e-mails list"
 msgstr "По указанному списку"
 
-#: ../options.php:125
+#: ../options.php:137
 msgid "Email List"
 msgstr "Список E-mail"
 
-#: ../options.php:129
+#: ../options.php:141
 msgid "E-mail Subject"
 msgstr "Тема письма"
 
-#: ../options.php:132
+#: ../options.php:144
 msgid "E-mail Text"
 msgstr "Текст письма"
 
-#: ../options.php:134
+#: ../options.php:146
 msgid ""
 "You can use <strong>[name]</strong> and <strong>[phone]</strong> shortcodes "
 "at E-mail subject and text."
@@ -237,40 +241,41 @@ msgstr ""
 "Вы можете использовать шорткоды <strong>[name]</strong> и <strong>[phone]</"
 "strong> в теме и тексте письма."
 
-#: ../options.php:138
+#: ../options.php:150
 msgid "Update settings"
 msgstr "Сохранить"
 
-#: ../options.php:141
+#: ../options.php:153
 msgid "Plugin Usage"
 msgstr "Использование плагина"
 
-#: ../options.php:142
-msgid "Use the <strong>[callback-form]</strong> shortcode at any post or page."
+#: ../options.php:154
+msgid ""
+"Use the <strong>[callback-phone] [callback-form]</strong> shortcode at any "
+"post or page."
 msgstr ""
-"Используйте шорткод <strong>[callback-form]</strong> на любой странице или "
-"записи Вашего сайта для отображения формы обратного звонка."
+"Используйте шорткод <strong>[callback-phone] [callback-form]</strong> на "
+"любой странице или записи Вашего сайта для отображения формы обратного "
+"звонка."
 
-#: ../options.php:143
+#: ../options.php:155
 msgid "Use the <strong>simpleCallbackForm()</strong> function at any template."
 msgstr ""
 "Используйте функцию <strong>simpleCallbackForm()</strong> для обображения "
 "формы обратного звонка в шаблонах."
 
-#: ../simple-callback.php:80
+#: ../simple-callback.php:65
 msgid "Simple Callback Options"
 msgstr "Параметры"
 
-#: ../simple-callback.php:88
+#: ../simple-callback.php:73
 msgid "You do not have sufficient permissions to access this page."
 msgstr "У вас нет прав на просмотр и изменение параметров плагина"
 
-#: ../updater.php:420
-msgid ""
-"The plugin has been updated, but could not be reactivated. Please reactivate "
-"it manually."
-msgstr "Плагин обновлен, но не активен, активируйте его."
+#~ msgid ""
+#~ "The plugin has been updated, but could not be reactivated. Please "
+#~ "reactivate it manually."
+#~ msgstr "Плагин обновлен, но не активен, активируйте его."
 
-#: ../updater.php:421
-msgid "Plugin reactivated successfully."
-msgstr "Плагин обновлен."
+#~ msgid "Plugin reactivated successfully."
+#~ msgstr "Плагин обновлен."
