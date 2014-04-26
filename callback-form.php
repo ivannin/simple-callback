@@ -1,7 +1,43 @@
 <?php
 // Шорткод
-add_shortcode('callback-form', 'getSimpleCallbackForm');
+add_shortcode('callback-phone', 'getSimpleCallbackPhone');
+// Функция показывает телефон и, при необходимости обрабатывает форму
+function getSimpleCallbackPhone()
+{
+	// Номер телефона
+	$phoneNumber = get_option('simple_callback_phone_number');
+	
+	// оставим в телефоне только цифры
+	$phoneOnlyDigits = preg_replace('/[^\d\+]/', '', $phoneNumber);
+	
+	// Вывод ссылки
+	$output = '<a class="simpleCallbackPhone" href="tel:' . $phoneOnlyDigits . '">' . $phoneNumber . '</a>' . PHP_EOL;
+	
+	// Вывод скрипта только один раз, если шорткод испольщовался несколько раз.
+	static $htmlBlockEnabled;
+	if (! $htmlBlockEnabled)
+	{
+		$form = getSimpleCallbackForm();
+		$output .= <<<CALLBACK_PHONE_BLOCK
+<script></script>
+<div id="simpleCallbackForm" style="display:none">
+$form
+</div>
+CALLBACK_PHONE_BLOCK;
+		$htmlBlockEnabled = true;
+	}
+	return $output;
+}
 
+// Функция показывает номер телефона
+function simpleCallbackPhone()
+{
+	echo getSimpleCallbackPhone();
+}
+
+
+// Шорткод
+add_shortcode('callback-form', 'getSimpleCallbackForm');
 // Функция обрабатывает и возвращает код формы
 function getSimpleCallbackForm()
 {

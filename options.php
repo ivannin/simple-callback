@@ -1,4 +1,5 @@
 <?php
+add_option('simple_callback_phone_number', '');
 add_option('simple_callback_email_notification', SIMPLE_CALLBACK_EMAIL_NOTIFICATION_NONE);
 add_option('simple_callback_email_list', '');
 add_option('simple_callback_email_subject', '');
@@ -7,6 +8,9 @@ add_option('simple_callback_email_text', '');
 // Принимаем данные
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+	if (isset($_POST['simpleCallBackPhoneMumber']))
+		update_option('simple_callback_phone_number', $_POST['simpleCallBackPhoneMumber']);	
+	
 	if (isset($_POST['sendEmailNotification']))
 		update_option('simple_callback_email_notification', $_POST['sendEmailNotification']);
 
@@ -43,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	border-bottom: 1px dotted gray;
 }
 #simple_callback fieldset div p, #simple_callback fieldset div li {
-	margin-left:  160px;
+	margin-left:  260px;
 }	
 #simple_callback label {
 	display:  block;
 	float:  left;
-	width:  150px;
+	width:  250px;
 	margin-right: 10px;
 	padding-top: 4px;
 	text-align: right;
@@ -56,6 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 #simple_callback input, #simple_callback textarea {
 	width:  50%;			
+}
+#simple_callback textarea
+{
+	height: 10em;
 }
 #simple_callback input[type="checkbox"] {
 	width:  20px;			
@@ -100,6 +108,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	<form method="post" action="#">
 		<fieldset>
 			<legend><?php _e('Callback Form Options', 'simple_callback')?></legend>
+			<div id="divPhoneNumber">
+				<label for="phoneNumber"><?php _e('Your Phone Number', 'simple_callback')?></label>
+				<input id="phoneNumber" name="simpleCallBackPhoneMumber" type="text" value="<?php echo get_option('simple_callback_phone_number'); ?>" />
+			</div>	
 			<div id="divSendEmailNotification">
 				<label for="sendEmailNotification"><?php _e('Send Email Notification', 'simple_callback')?></label>
 				<?php
@@ -139,6 +151,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		</div>
 	</form>
 	<h3><?php _e('Plugin Usage', 'simple_callback');	?></h3>
-	<p><?php _e('Use the <strong>[callback-form]</strong> shortcode at any post or page.', 'simple_callback')?></p>
+	<p><?php _e('Use the <strong>[callback-phone] [callback-form]</strong> shortcode at any post or page.', 'simple_callback')?></p>
 	<p><?php _e('Use the <strong>simpleCallbackForm()</strong> function at any template.', 'simple_callback')?></p>
 </div>

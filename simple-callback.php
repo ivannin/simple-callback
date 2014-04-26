@@ -44,32 +44,17 @@ function simpleCallbackInit()
 	load_plugin_textdomain( 'simple_callback', false, basename(dirname(__FILE__)) . '/lang/' );
 }
 
-add_action( 'init', 'githubSimpleCallbackUpdaterInit' );
-function githubSimpleCallbackUpdaterInit()
+// Подключение скриптов
+add_action('wp_enqueue_scripts', 'simpleCallbackScripts' );
+function simpleCallbackScripts() 
 {
-	// Обновление с github
-	include_once 'updater.php';
-
-	define( 'WP_GITHUB_FORCE_UPDATE', true);
-
-	if ( is_admin() ) 
-	{ 
-		// note the use of is_admin() to double check that this is happening in the admin
-		$config = array(
-			'slug' => plugin_basename( __FILE__ ),
-			'proper_folder_name' => 'simple-callback',
-			'api_url' => 'https://api.github.com/repos/ivannin/simple-callback',
-			'raw_url' => 'https://raw.github.com/ivannin/simple-callback/master',
-			'github_url' => 'https://github.com/ivannin/simple-callback/tree/master',
-			'zip_url' => 'https://github.com/ivannin/simple-callback/archive/master.zip',
-			'sslverify' => true,
-			'requires' => '3.0',
-			'tested' => '3.3',
-			'readme' => 'README.md',
-			'access_token' => '',
-		);
-		new WP_GitHub_Updater( $config );
-	}	
+	// Подключаем jQuery UI dialog, если указан телефон в параметрах 
+	$phoneNumber = trim(get_option('simple_callback_phone_number'));
+	if (! empty($phoneNumber))
+	{
+		wp_enqueue_script('simpleCallback', plugins_url('simple-callback.js' , __FILE__  ), 
+			array('jquery-ui-dialog'), '0.0.2', true);
+	}
 }
 
 // ---------------- Страница параметров плагина ----------------
