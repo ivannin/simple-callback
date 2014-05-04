@@ -161,10 +161,16 @@ function simpleCallbackGetHTML($nameValue='', $phoneValue='')
 	$action = $_SERVER['REQUEST_URI'];
 	$txtName = SIMPLE_CALLBACK_POST_NAME;
 	$txtPhone = SIMPLE_CALLBACK_POST_PHONE;
+	$formTitle = get_option('simple_callback_form_title');
+	$formWidth = get_option('simple_callback_form_width');
+	$formHeight = get_option('simple_callback_form_height');
 
 	$html = <<<EOT
 <form class="simple-callback-form" action="{$action}" method="post">
 	<input type="hidden" name="formId" value="simple-callback-form" />
+	<input id="formTitle" type="hidden" value="{$formTitle}" />
+	<input id="formWidth" type="hidden" value="{$formWidth}" />
+	<input id="formHeight" type="hidden" value="{$formHeight}" />
 	<div>
 		<label for="txtSimpleCallbackName">{$labelName}</label>
 		<input id="txtSimpleCallbackName" name="{$txtName}" type="text" value="{$nameValue}" placeholder="{$placeholderName}" />

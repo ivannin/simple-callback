@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: simple_callback\n"
-"POT-Creation-Date: 2014-04-26 19:06+0400\n"
-"PO-Revision-Date: 2014-04-26 19:06+0400\n"
+"POT-Creation-Date: 2014-05-04 09:29+0400\n"
+"PO-Revision-Date: 2014-05-04 09:31+0400\n"
 "Last-Translator: Иван Никитин <ivan@nikitin.org>\n"
 "Language-Team: IvanNikitin.com <ivan@nikitin.org>\n"
 "Language: ru_RU\n"
@@ -17,43 +17,43 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../callback-form.php:63
+#: ../callback-form.php:67
 msgid "Please, enter your name <br />"
 msgstr "Укажите Ваше имя <br />"
 
-#: ../callback-form.php:65
+#: ../callback-form.php:69
 msgid "Please, enter correct phone number <br />"
 msgstr "Укажите правильный номер телефона <br />"
 
-#: ../callback-form.php:81 ../custom-type.php:147 ../custom-type.php:160
+#: ../callback-form.php:85 ../custom-type.php:147 ../custom-type.php:160
 msgid "Phone"
 msgstr "Телефон"
 
-#: ../callback-form.php:83 ../custom-type.php:78
+#: ../callback-form.php:87 ../custom-type.php:78
 msgid "New"
 msgstr "Новый"
 
-#: ../callback-form.php:125
+#: ../callback-form.php:129
 msgid "Thank you! We shall call you later."
 msgstr "Спасибо! Мы перезвоним Вам в ближайшее время!"
 
-#: ../callback-form.php:150
+#: ../callback-form.php:154
 msgid "Your Name"
 msgstr "Ваше имя"
 
-#: ../callback-form.php:151
+#: ../callback-form.php:155
 msgid "Your Phone"
 msgstr "Ваш телефон"
 
-#: ../callback-form.php:152
+#: ../callback-form.php:156
 msgid "Enter your name"
 msgstr "Укажите ваше имя и фамилию"
 
-#: ../callback-form.php:153
+#: ../callback-form.php:157
 msgid "Enter your phone"
 msgstr "Укажите Ваш телефон"
 
-#: ../callback-form.php:154
+#: ../callback-form.php:158
 msgid "Submit"
 msgstr "Отправить"
 
@@ -193,47 +193,47 @@ msgstr "Заявка обработана"
 msgid "Customer"
 msgstr "Клиент"
 
-#: ../options.php:106 ../simple-callback.php:66
+#: ../options.php:136 ../simple-callback.php:66
 msgid "Simple Callback"
 msgstr "Простой звонок"
 
-#: ../options.php:110
+#: ../options.php:140
 msgid "Callback Form Options"
 msgstr "Параметры"
 
-#: ../options.php:112
+#: ../options.php:142
 msgid "Your Phone Number"
 msgstr "Номер вашего телефона"
 
-#: ../options.php:116
+#: ../options.php:146
 msgid "Send Email Notification"
 msgstr "Отправка на E-mail"
 
-#: ../options.php:130
+#: ../options.php:160
 msgid "None"
 msgstr "Нет"
 
-#: ../options.php:131
+#: ../options.php:161
 msgid "To all administrators"
 msgstr "Всем администраторам"
 
-#: ../options.php:132
+#: ../options.php:162
 msgid "To this e-mails list"
 msgstr "По указанному списку"
 
-#: ../options.php:137
+#: ../options.php:167
 msgid "Email List"
 msgstr "Список E-mail"
 
-#: ../options.php:141
+#: ../options.php:171
 msgid "E-mail Subject"
 msgstr "Тема письма"
 
-#: ../options.php:144
+#: ../options.php:174
 msgid "E-mail Text"
 msgstr "Текст письма"
 
-#: ../options.php:146
+#: ../options.php:176
 msgid ""
 "You can use <strong>[name]</strong> and <strong>[phone]</strong> shortcodes "
 "at E-mail subject and text."
@@ -241,15 +241,38 @@ msgstr ""
 "Вы можете использовать шорткоды <strong>[name]</strong> и <strong>[phone]</"
 "strong> в теме и тексте письма."
 
-#: ../options.php:150
+#: ../options.php:179
+msgid "Dialog Title"
+msgstr "Заголовок диалога"
+
+#: ../options.php:181
+msgid "Specify your form title (jQuery UI Dialog)"
+msgstr "Укажите заголовок формы диалога (jQuery UI Dialog)"
+
+#: ../options.php:184
+msgid "Width"
+msgstr "Ширина"
+
+#: ../options.php:186
+msgid "Height"
+msgstr "Высота"
+
+#: ../options.php:188
+msgid ""
+"Specify your form (jQuery UI Dialog) size. Leave fields empty for auto sizes"
+msgstr ""
+"Укажите размер формы диалога (jQuery UI Dialog). Или оставьте пустым для "
+"размеров по умолчанию."
+
+#: ../options.php:194
 msgid "Update settings"
 msgstr "Сохранить"
 
-#: ../options.php:153
+#: ../options.php:197
 msgid "Plugin Usage"
 msgstr "Использование плагина"
 
-#: ../options.php:154
+#: ../options.php:198
 msgid ""
 "Use the <strong>[callback-phone] [callback-form]</strong> shortcode at any "
 "post or page."
@@ -258,7 +281,7 @@ msgstr ""
 "любой странице или записи Вашего сайта для отображения формы обратного "
 "звонка."
 
-#: ../options.php:155
+#: ../options.php:199
 msgid "Use the <strong>simpleCallbackForm()</strong> function at any template."
 msgstr ""
 "Используйте функцию <strong>simpleCallbackForm()</strong> для обображения "

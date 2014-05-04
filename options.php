@@ -4,6 +4,10 @@ add_option('simple_callback_email_notification', SIMPLE_CALLBACK_EMAIL_NOTIFICAT
 add_option('simple_callback_email_list', '');
 add_option('simple_callback_email_subject', '');
 add_option('simple_callback_email_text', '');
+add_option('simple_callback_form_title', 'Callback');
+add_option('simple_callback_form_width', '');
+add_option('simple_callback_form_height', '');
+
 
 // Принимаем данные
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -21,7 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		update_option('simple_callback_email_subject', $_POST['emailSubject']);	
 
 	if (isset($_POST['emailBody']))
-		update_option('simple_callback_email_text', $_POST['emailBody']);	
+		update_option('simple_callback_email_text', $_POST['emailBody']);
+
+	if (isset($_POST['formTitle']))
+		update_option('simple_callback_form_title', $_POST['formTitle']);
+		
+		
+	if (isset($_POST['formWidth']))
+		update_option('simple_callback_form_width', $_POST['formWidth']);
+		
+	if (isset($_POST['formHeight']))
+		update_option('simple_callback_form_height', $_POST['formHeight']);		
+		
 }
 
 
@@ -71,6 +86,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 #divSendEmailNotification {
 	border-bottom-style: none !important;
 }	
+#divFormSize input
+{
+	width: 40px;
+}
+
+#divFormSize #labelFormHeight
+{
+	display: inline !important;
+	width: auto;
+	float: none;
+	margin-left: 4em;
+	position: relative;
+	top: -2px;
+}
+
 </style>
 <script type="text/javascript">
 	jQuery(function ($)
@@ -145,6 +175,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 				<textarea id="emailBody" name="emailBody"><?php echo get_option('simple_callback_email_text'); ?></textarea>
 				<p><?php _e('You can use <strong>[name]</strong> and <strong>[phone]</strong> shortcodes at E-mail subject and text.', 'simple_callback')?></p>
 			</div>
+			<div id="divFormTitle">
+				<label for="formTitle"><?php _e('Dialog Title', 'simple_callback')?></label>
+				<input id="formTitle" name="formTitle" type="text" value="<?php echo get_option('simple_callback_form_title'); ?>" />
+				<p><?php _e('Specify your form title (jQuery UI Dialog)', 'simple_callback')?></p>
+			</div>				
+			<div id="divFormSize">
+				<label for="formWidth"><?php _e('Width', 'simple_callback')?></label>
+				<input id="formWidth" name="formWidth" type="text" size="4" value="<?php echo get_option('simple_callback_form_width'); ?>" /> px.
+				<label for="formHeight" id="labelFormHeight"><?php _e('Height', 'simple_callback')?></label>
+				<input id="formHeight" name="formHeight" type="text" size="4" value="<?php echo get_option('simple_callback_form_height'); ?>" /> px.
+				<p><?php _e('Specify your form (jQuery UI Dialog) size. Leave fields empty for auto sizes', 'simple_callback')?></p>
+			</div>			
+			
+			
 		</fieldset>
 		<div>
 			<button class="button button-primary" type="submit"><?php _e('Update settings', 'simple_callback')?></button>
