@@ -179,7 +179,7 @@ function simpleCallbackGetHTML($nameValue='', $phoneValue='')
 		<label for="txtSimpleCallbackPhone">{$labelPhone}</label>
 		<input id="txtSimpleCallbackPhone" name="{$txtPhone}" type="tel" value="{$phoneValue}" placeholder="{$placeholderPhone}" />
 	</div>
-	<div>
+	<div class="buttons">
 		<button type="submit">{$buttonSumbit}</button>
 	</div>
 </form>
